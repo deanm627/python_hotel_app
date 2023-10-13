@@ -11,14 +11,20 @@ hotel = {
 }
 
 def checkin():
-    check = False
-    while check == False:
-        floor = input("Enter the floor number: ")
+    check1 = False
+    while check1 == False:
+        floor = input("Enter the floor number (1-3): ")
         if floor == "1" or floor == "2" or floor == "3":
-            check = True
+            check1 = True
         else:
             print("Not a valid floor number. Enter a number 1-3")
-    room = input("Enter the room number: ")
+    check2 = False
+    while check2 == False:
+        room = input("Enter the room number (3 numbers): ")
+        if room[0] == floor and len(room) == 3 and room.isnumeric():
+            check2 = True
+        else:
+            print("Not a valid room number. Room number should start with floor number and should be 3 numbers")
     if room in hotel[floor]:
         print("This room is already occupied. Try again")
         return
@@ -34,14 +40,20 @@ def checkin():
     display()
 
 def checkout():
-    check = False
-    while check == False:
-        floor = input("Enter the floor number: ")
+    check1 = False
+    while check1 == False:
+        floor = input("Enter the floor number (1-3): ")
         if floor == "1" or floor == "2" or floor == "3":
-            check = True
+            check1 = True
         else:
             print("Not a valid floor number. Enter a number 1-3")
-    room = input("Enter the room number: ")
+    check2 = False
+    while check2 == False:
+        room = input("Enter the room number (3 numbers): ")
+        if room[0] == floor and len(room) == 3 and room.isnumeric():
+            check2 = True
+        else:
+            print("Not a valid room number. Room number should start with floor number and should be 3 numbers")
     if room not in hotel[floor]:
         print("This room is not occupied. Try again")
         return
